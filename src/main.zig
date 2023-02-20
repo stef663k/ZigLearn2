@@ -152,43 +152,115 @@
 //     }
 
 //     std.debug.print("\n", .{});
+// const std = @import("std");
+
+// pub fn main() void {
+//     const le = [_]u8{ 1, 3 };
+//     const et = [_]u8{ 3, 7 };
+
+//     // (Problem 1)
+//     // Please set this array concatenating the two arrays above.
+//     // It should result in: 1 3 3 7
+//     const leet = le ++ et ++ [_]u8{ };
+
+//     // (Problem 2)
+//     // Please set this array using repetition.
+//     // It should result in: 1 0 0 1 1 0 0 1 1 0 0 1
+//     const bit_pattern = [_]u8{ 1,0,0,1 } ** 3;
+
+//     // Okay, that's all of the problems. Let's see the results.
+//     //
+//     // We could print these arrays with leet[0], leet[1],...but let's
+//     // have a little preview of Zig 'for' loops instead:
+//     //
+//     //    for (<item array>) |item| { <do something with item> }
+//     //
+//     // Don't worry, we'll cover looping properly in upcoming
+//     // lessons.
+//     //
+//     std.debug.print("LEET: ", .{});
+
+//     for (leet) |n| {
+//         std.debug.print("{}", .{n});
+//     }
+
+//     std.debug.print(", Bits: ", .{});
+
+//     for (bit_pattern) |n| {
+//         std.debug.print("{}", .{n});
+//     }
+
+//     std.debug.print("\n", .{});
+// }
+
+///Opgave 6
+// const std = @import("std");
+
+// pub fn main() void {
+//     const ziggy = "stardust";
+
+//     // (Problem 1)
+//     // Use array square bracket syntax to get the letter 'd' from
+//     // the string "stardust" above.
+//     const d: u8 = ziggy[???];
+
+//     // (Problem 2)
+//     // Use the array repeat '**' operator to make "ha ha ha ".
+//     const laugh = "ha " ???;
+
+//     // (Problem 3)
+//     // Use the array concatenation '++' operator to make "Major Tom".
+//     // (You'll need to add a space as well!)
+//     const major = "Major";
+//     const tom = "Tom";
+//     const major_tom = major ??? tom;
+
+//     // That's all the problems. Let's see our results:
+//     std.debug.print("d={u} {s}{s}\n", .{ d, laugh, major_tom });
+//     // Keen eyes will notice that we've put 'u' and 's' inside the '{}'
+//     // placeholders in the format string above. This tells the
+//     // print() function to format the values as a UTF-8 character and
+//     // UTF-8 strings respectively. If we didn't do this, we'd see '100',
+//     // which is the decimal number corresponding with the 'd' character
+//     // in UTF-8. (And an error in the case of the strings.)
+//     //
+//     // While we're on this subject, 'c' (ASCII encoded character)
+//     // would work in place for 'u' because the first 128 characters
+//     // of UTF-8 are the same as ASCII!
+//     //
+// }
 const std = @import("std");
 
 pub fn main() void {
-    const le = [_]u8{ 1, 3 };
-    const et = [_]u8{ 3, 7 };
+    const ziggy = "stardust";
 
     // (Problem 1)
-    // Please set this array concatenating the two arrays above.
-    // It should result in: 1 3 3 7
-    const leet = le ++ et ++ [_]u8{ };
+    // Use array square bracket syntax to get the letter 'd' from
+    // the string "stardust" above.
+    const d: u8 = ziggy[4];
 
     // (Problem 2)
-    // Please set this array using repetition.
-    // It should result in: 1 0 0 1 1 0 0 1 1 0 0 1
-    const bit_pattern = [_]u8{ 1,0,0,1 } ** 3;
+    // Use the array repeat '**' operator to make "ha ha ha ".
+    const laugh = "ha " ** 3;
 
-    // Okay, that's all of the problems. Let's see the results.
+    // (Problem 3)
+    // Use the array concatenation '++' operator to make "Major Tom".
+    // (You'll need to add a space as well!)
+    const major = "Major";
+    const tom = "Tom";
+    const major_tom = major ++ tom ++ [_]u8{};
+
+    // That's all the problems. Let's see our results:
+    std.debug.print("d={u} {s}{s}\n", .{ d, laugh, major_tom });
+    // Keen eyes will notice that we've put 'u' and 's' inside the '{}'
+    // placeholders in the format string above. This tells the
+    // print() function to format the values as a UTF-8 character and
+    // UTF-8 strings respectively. If we didn't do this, we'd see '100',
+    // which is the decimal number corresponding with the 'd' character
+    // in UTF-8. (And an error in the case of the strings.)
     //
-    // We could print these arrays with leet[0], leet[1],...but let's
-    // have a little preview of Zig 'for' loops instead:
+    // While we're on this subject, 'c' (ASCII encoded character)
+    // would work in place for 'u' because the first 128 characters
+    // of UTF-8 are the same as ASCII!
     //
-    //    for (<item array>) |item| { <do something with item> }
-    //
-    // Don't worry, we'll cover looping properly in upcoming
-    // lessons.
-    //
-    std.debug.print("LEET: ", .{});
-
-    for (leet) |n| {
-        std.debug.print("{}", .{n});
-    }
-
-    std.debug.print(", Bits: ", .{});
-
-    for (bit_pattern) |n| {
-        std.debug.print("{}", .{n});
-    }
-
-    std.debug.print("\n", .{});
 }
