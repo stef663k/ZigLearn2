@@ -31,18 +31,20 @@
 
 //     std.debug.print("{} {} {}\n", .{ n, pi, negative_eleven });
 // }
-//We can see that they start chaning a constant, which you cannot, 
+//We can see that they start changing a constant, which you cannot, 
 //they then places too high a number in const pi
 //They then assign an assigned integer and making it negative
+//Pi was also not a decimal or in this case a float
 const std = @import("std");
 
 pub fn main() void {
     var n: u8 = 50;
     n = n + 5;
 
-    const pi: u32 = 314159;
+    const pi: f32 = 3.14159;
 
     const negative_eleven: i8 = -11;
 
     std.debug.print("{} {} {}\n", .{ n, pi, negative_eleven });
 }
+
