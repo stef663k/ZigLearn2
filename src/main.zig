@@ -229,38 +229,134 @@
 //     // of UTF-8 are the same as ASCII!
 //     //
 // }
+// const std = @import("std");
+
+// pub fn main() void {
+//     const ziggy = "stardust";
+
+//     // (Problem 1)
+//     // Use array square bracket syntax to get the letter 'd' from
+//     // the string "stardust" above.
+//     const d: u8 = ziggy[4];
+
+//     // (Problem 2)
+//     // Use the array repeat '**' operator to make "ha ha ha ".
+//     const laugh = "ha " ** 3;
+
+//     // (Problem 3)
+//     // Use the array concatenation '++' operator to make "Major Tom".
+//     // (You'll need to add a space as well!)
+//     const major = "Major ";
+//     const tom = "Tom";
+//     const major_tom = major ++ tom;
+
+//     // That's all the problems. Let's see our results:
+//     std.debug.print("d={u} {s}{s}\n", .{ d, laugh, major_tom });
+//     // Keen eyes will notice that we've put 'u' and 's' inside the '{}'
+//     // placeholders in the format string above. This tells the
+//     // print() function to format the values as a UTF-8 character and
+//     // UTF-8 strings respectively. If we didn't do this, we'd see '100',
+//     // which is the decimal number corresponding with the 'd' character
+//     // in UTF-8. (And an error in the case of the strings.)
+//     //
+//     // While we're on this subject, 'c' (ASCII encoded character)
+//     // would work in place for 'u' because the first 128 characters
+//     // of UTF-8 are the same as ASCII!
+//     //
+// }
+
+///Opgave 7
+// const std = @import("std");
+
+// pub fn main() void {
+//     const lyrics =
+//         Ziggy played guitar
+//         Jamming good with Andrew Kelley
+//         And the Spiders from Mars
+//     ;
+
+//     std.debug.print("{s}\n", .{lyrics});
+// }
+// const std = @import("std");
+
+// pub fn main() void {
+
+//     const lyrics = 
+//         \\Ziggy played guitar
+//         \\Jamming good with Andrew Kelley
+//         \\And the Spiders from Mars
+//     ;
+
+//     std.debug.print("{s}\n", .{lyrics});
+// }
+
+///Opgave 8
+// const std = @import("std");
+
+// pub fn main() void {
+//     // What is this nonsense? :-)
+//     const letters = "YZhifg";
+
+//     // Note: usize is an unsigned integer type used for...sizes.
+//     // The exact size of usize depends on the target CPU
+//     // architecture. We could have used a u8 here, but usize is
+//     // the idiomatic type to use for array indexing.
+//     //
+//     // There IS a problem on this line, but 'usize' isn't it.
+//     const x: usize = 1;
+
+//     // Note: When you want to declare memory (an array in this
+//     // case) without putting anything in it, you can set it to
+//     // 'undefined'. There is no problem on this line.
+//     var lang: [3]u8 = undefined;
+
+//     // The following lines attempt to put 'Z', 'i', and 'g' into the
+//     // 'lang' array we just created by indexing the array
+//     // 'letters' with the variable 'x'. As you can see above, x=1
+//     // to begin with.
+//     lang[0] = letters[x];
+
+//     x = 3;
+//     lang[???] = letters[x];
+
+//     x = ???;
+//     lang[2] = letters[???];
+
+//     // We want to "Program in Zig!" of course:
+//     std.debug.print("Program in {s}!\n", .{lang});
+// }
 const std = @import("std");
 
 pub fn main() void {
-    const ziggy = "stardust";
+    // What is this nonsense? :-)
+    const letters = "YZhifg";
 
-    // (Problem 1)
-    // Use array square bracket syntax to get the letter 'd' from
-    // the string "stardust" above.
-    const d: u8 = ziggy[4];
-
-    // (Problem 2)
-    // Use the array repeat '**' operator to make "ha ha ha ".
-    const laugh = "ha " ** 3;
-
-    // (Problem 3)
-    // Use the array concatenation '++' operator to make "Major Tom".
-    // (You'll need to add a space as well!)
-    const major = "Major ";
-    const tom = "Tom";
-    const major_tom = major ++ tom;
-
-    // That's all the problems. Let's see our results:
-    std.debug.print("d={u} {s}{s}\n", .{ d, laugh, major_tom });
-    // Keen eyes will notice that we've put 'u' and 's' inside the '{}'
-    // placeholders in the format string above. This tells the
-    // print() function to format the values as a UTF-8 character and
-    // UTF-8 strings respectively. If we didn't do this, we'd see '100',
-    // which is the decimal number corresponding with the 'd' character
-    // in UTF-8. (And an error in the case of the strings.)
+    // Note: usize is an unsigned integer type used for...sizes.
+    // The exact size of usize depends on the target CPU
+    // architecture. We could have used a u8 here, but usize is
+    // the idiomatic type to use for array indexing.
     //
-    // While we're on this subject, 'c' (ASCII encoded character)
-    // would work in place for 'u' because the first 128 characters
-    // of UTF-8 are the same as ASCII!
-    //
+    // There IS a problem on this line, but 'usize' isn't it.
+    var x: usize = 1;
+
+    // Note: When you want to declare memory (an array in this
+    // case) without putting anything in it, you can set it to
+    // 'undefined'. There is no problem on this line.
+    var lang: [3]u8 = undefined;
+
+    // The following lines attempt to put 'Z', 'i', and 'g' into the
+    // 'lang' array we just created by indexing the array
+    // 'letters' with the variable 'x'. As you can see above, x=1
+    // to begin with.
+    lang[0] = letters[x];
+
+    x = 3;
+    lang[1] = letters[x];
+
+    x = 5;
+    lang[2] = letters[x];
+
+    // We want to "Program in Zig!" of course:
+    std.debug.print("Program in {s}!\n", .{lang});
 }
+
