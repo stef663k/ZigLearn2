@@ -374,16 +374,52 @@
 //         std.debug.print("Foo is not 1!\n", .{});
 //     }
 // }
+// const std = @import("std");
+
+// pub fn main() void {
+//     const foo = 1;
+
+//     // Please fix this condition:
+//     if (foo == 1) {
+//         // We want our program to print this message!
+//         std.debug.print("Foo is 1!\n", .{});
+//     } else {
+//         std.debug.print("Foo is not 1!\n", .{});
+//     }
+// }
+
+///Opgave 10
+//
+// If statements are also valid expressions:
+//
+//     var foo: u8 = if (a) 2 else 3;
+//
+// const std = @import("std");
+
+// pub fn main() void {
+//     var discount = true;
+
+//     // Please use an if...else expression to set "price".
+//     // If discount is true, the price should be $17, otherwise $20:
+//     var price: u8 = if ???;
+
+//     std.debug.print("With the discount, the price is ${}.\n", .{price});
+// }
+
 const std = @import("std");
 
 pub fn main() void {
-    const foo = 1;
+    var discount = true;
 
-    // Please fix this condition:
-    if (foo == 1) {
-        // We want our program to print this message!
-        std.debug.print("Foo is 1!\n", .{});
-    } else {
-        std.debug.print("Foo is not 1!\n", .{});
+    // Please use an if...else expression to set "price".
+    // If discount is true, the price should be $17, otherwise $20:
+    var price: u8 = undefined;
+    if(discount == true){
+        price = 17;
     }
+    else{
+        price = 20;
+    }
+
+    std.debug.print("With the discount, the price is ${}.\n", .{price});
 }
