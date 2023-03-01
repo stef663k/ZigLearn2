@@ -1,4 +1,4 @@
-///Opgave 1 
+///Opgave 1
 //const std = @import("std");
 
 // fn main() void {
@@ -6,7 +6,7 @@
 // }
 ///Here we can see it is missing the pub making it public
 //  pub fn main() void {
-//    std.debug.print("Hello {s}\n", .{"World"}); 
+//    std.debug.print("Hello {s}\n", .{"World"});
 // }
 
 ///Opgave 2
@@ -17,7 +17,6 @@
 // }
 ///Here we can see that we need to set import as a constant
 ///const std = @import("std");
-
 ///Opgave 3
 // const std = @import("std");
 
@@ -31,7 +30,7 @@
 
 //     std.debug.print("{} {} {}\n", .{ n, pi, negative_eleven });
 // }
-///We can see that they start changing a constant, which you cannot, 
+///We can see that they start changing a constant, which you cannot,
 ///they then places too high a number in const pi
 ///They then assign an assigned integer and making it negative
 ///Pi was also not a decimal or in this case a float
@@ -281,7 +280,7 @@
 
 // pub fn main() void {
 
-//     const lyrics = 
+//     const lyrics =
 //         \\Ziggy played guitar
 //         \\Jamming good with Andrew Kelley
 //         \\And the Spiders from Mars
@@ -525,18 +524,70 @@
 //     // As in the last exercise, we want this to result in "n=1024"
 //     std.debug.print("n={}\n", .{n});
 // }
+// const std = @import("std");
+
+// pub fn main() void {
+//     var n: u32 = 2;
+
+//     // Please set the continue expression so that we get the desired
+//     // results in the print statement below.
+//     while (n < 1000) : (n *= 2) {
+//         // Print the current number
+//         std.debug.print("{} ", .{n});
+//     }
+
+//     // As in the last exercise, we want this to result in "n=1024"
+//     std.debug.print("n={}\n", .{n});
+// }
+
+///Opgave 13
+//
+// The last two exercises were functionally identical. Continue
+// expressions really show their utility when used with 'continue'
+// statements!
+//
+// Example:
+//
+//     while (condition) : (continue expression) {
+//
+//         if (other condition) continue;
+//
+//     }
+//
+// The "continue expression" executes every time the loop restarts
+// whether the "continue" statement happens or not.
+//
+// const std = @import("std");
+
+// pub fn main() void {
+//     var n: u32 = 1;
+
+//     // I want to print every number between 1 and 20 that is NOT
+//     // divisible by 3 or 5.
+//     while (n <= 20) : (n += 1) {
+//         // The '%' symbol is the "modulo" operator and it
+//         // returns the remainder after division.
+//         if (n % 3 == 0) ???;
+//         if (n % 5 == 0) ???;
+//         std.debug.print("{} ", .{n});
+//     }
+
+//     std.debug.print("\n", .{});
+// }
 const std = @import("std");
 
 pub fn main() void {
-    var n: u32 = 2;
+    var n: u32 = 1;
 
-    // Please set the continue expression so that we get the desired
-    // results in the print statement below.
-    while (n < 1000) : (n *= 2) {
-        // Print the current number
+    // I want to print every number between 1 and 20 that is NOT
+    // divisible by 3 or 5.
+    while (n <= 20) : (n += 1) {
+        // The '%' symbol is the "modulo" operator and it
+        // returns the remainder after division.
+        if (n % 3 == 0) continue;
+        if (n % 5 == 0) continue;
         std.debug.print("{} ", .{n});
     }
 
-    // As in the last exercise, we want this to result in "n=1024"
-    std.debug.print("n={}\n", .{n});
+    std.debug.print("\n", .{});
 }
